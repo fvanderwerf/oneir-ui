@@ -1,7 +1,7 @@
 Summary: oneIR web user interface
 Name: oneir-ui
-Version: dev
-Release: 1
+Version: %{version}
+Release: %{release}
 License: GPLv2+
 Group: Applications/Internet
 Packager: Fabian van der Werf <fvanderwerf@gmail.com>
