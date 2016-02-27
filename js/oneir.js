@@ -1,24 +1,17 @@
 
 (function() {
 
-var mymodule = angular.module('oneir', []);
+var oneir = angular.module('oneir', []);
 
-mymodule.controller("oneircontrol", ['$scope', '$http', function($scope, $http) {
-	$scope.host = '';
+oneir.controller("oneircfgctrl", [ '$scope', function($scope) {
+    $scope.url = localStorage.getItem("oneirurl");
+    if ($scope.url === null)
+        $scope.url = "";
 
-	$scope.off = function() {
-		$http({
-			method: 'POST',
-			url: $scope.host + '/api/v1/oneir/command',
-			headers : {
-				'Content-Type' : 'application/json',
-				'Accept-Type' : 'application/json',
-			},
-			data : { 'command' : 'off' }
-		}).then(function(response) { console.log(response) },
-			function(response) { console.log(response) });
-	};
+    $scope.$watch('url', function() {
+        localStorage.setItem("oneirurl", $scope.url);
+    });
+    
 }]);
-
 
 })();
