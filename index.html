@@ -17,10 +17,13 @@
     <div class="container">
         <h1>OneIR</h1>
         <input type="text" name="oneir-url" ng-controller="oneircfgctrl" ng-model="url"></input>
-        <h2>RC-5</h2>
-        <input type="text" name="rc5-address"></input>
-        <input type="text" name="rc5-code"></input>
-        <button type="button">Send</button>
+
+        <div ng-controller="oneirrc5">
+            <h2>RC-5</h2>
+            <input type="text" name="rc5-address" ng-model="address"></input>
+            <input type="text" name="rc5-code" ng-model="code"></input>
+            <button type="button" ng-click="send();">Send</button>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
